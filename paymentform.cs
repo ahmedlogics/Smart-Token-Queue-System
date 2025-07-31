@@ -46,23 +46,14 @@ namespace WindowsFormsApp1
             cmbPaymentMethod.SelectedIndex = 0;
         }
 
-       // private int CalculateAmount(string dept)
-        //{
-         //   if (dept == "Nadra") return 750;
-          //  else if (dept == "Passport") return 500;
-           // else if (dept == "Driving") return 400;
-            //else return 300;
-        //}
-
-
         private void BtnDone_Click_1(object sender, EventArgs e)
         {
 
             IsPaymentSuccessful = true;
-            this.DialogResult = DialogResult.OK; // ✅ Important!
+            this.DialogResult = DialogResult.OK; // Important!
             this.Close();
 
-            // Simple validation can be enhanced
+            
             Form7 receipt = new Form7(tokenID, tokenNo, department, branch, category, date, timeSlot, amountDue);
             receipt.Show();
             this.Hide(); ;
