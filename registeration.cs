@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class Form2 : Form
     {
-        // Replace with your actual connection string
+       
         string connectionString = @"Data Source=AHMEDPC\SQLEXPRESS;Initial Catalog=projectdb;Integrated Security=True";
 
         public Form2()
@@ -64,15 +64,15 @@ namespace WindowsFormsApp1
                     cmd.Parameters.AddWithValue("@FullName", fullName);
                     cmd.Parameters.AddWithValue("@CNIC", cnic);
                     cmd.Parameters.AddWithValue("@Phone", phone);
-                    cmd.Parameters.AddWithValue("@PasswordHash", password); // You can hash it later
-                   // cmd.Parameters.AddWithValue("@UserCategory", userCategory);
+                    cmd.Parameters.AddWithValue("@PasswordHash", password); 
+                  
 
                     int rowsInserted = cmd.ExecuteNonQuery();
                     if (rowsInserted > 0)
                     {
                         MessageBox.Show("Registered successfully!");
 
-                        // Go back to login form
+                        
                         Form1 loginForm = new Form1();
                         loginForm.Show();
                         this.Hide();
