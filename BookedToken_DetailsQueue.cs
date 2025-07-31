@@ -11,7 +11,7 @@ namespace WindowsFormsApp1
         private string tokenID;
         private string tokenNo;
         private string category1;
-        // ✅ Changed from int to string
+     
 
         private string connectionString = @"Data Source=AHMEDPC\SQLEXPRESS;Initial Catalog=projectdb;Integrated Security=True";
 
@@ -35,7 +35,7 @@ namespace WindowsFormsApp1
             lblTimeSlot.Text = timeSlot;
             lblTokenID.Text = tokenID;
 
-            LoadTokenDetails();  // Optional: if needed
+            LoadTokenDetails();  
             LoadQueueDetails();
             LoadQueueIntoGrid();
         }
