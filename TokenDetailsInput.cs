@@ -14,7 +14,7 @@ namespace WindowsFormsApp1
             InitializeComponent();
             userCnic = cnic;
 
-            // Register Form Load event manually (if not already in Designer)
+         
             this.Load += Form4_Load;
         }
 
@@ -68,7 +68,7 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            // Set fee according to department
+           
             int fee = department == "Nadra" ? 750 :
                       department == "Passport" ? 500 :
                       department == "Driving" ? 300 :
@@ -77,7 +77,7 @@ namespace WindowsFormsApp1
             string tokenID = GenerateTokenID();
             string tokenNumber = GenerateTokenNumber(department);
 
-            // Open payment form first
+    
             paymentform paymentForm = new paymentform(tokenID, tokenNumber, department, branch, category, date.ToShortDateString(), timeSlot, fee);
            
             if (paymentForm.ShowDialog() == DialogResult.OK && paymentForm.IsPaymentSuccessful)
@@ -87,7 +87,7 @@ namespace WindowsFormsApp1
                 {
                     conn.Open();
 
-                    // Insert into token
+                    // Insert into token table
                     string insertBooking = @"
             INSERT INTO token (Tokenid, Department, Branch, Category, Date, TimeSlot, CNIC, Status)
             VALUES (@Tokenid, @Department, @Branch, @Category, @Date, @TimeSlot, @CNIC, @Status)";
@@ -110,7 +110,7 @@ namespace WindowsFormsApp1
                         }
                     }
 
-                    // Insert into tokenmaster
+                    // Insert into tokenmaster table
                     string insertToken = @"INSERT INTO tokenmaster (TokenID, TokenNo, CNIC)
                                VALUES (@TokenID, @TokenNo, @CNIC)";
                     using (SqlCommand cmd = new SqlCommand(insertToken, conn))
